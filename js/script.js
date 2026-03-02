@@ -107,7 +107,7 @@
     function step(now) {
       const elapsed  = now - start;
       const progress = Math.min(elapsed / duration, 1);
-      // ease-out quad
+      // ease-out cubic
       const eased    = 1 - Math.pow(1 - progress, 3);
       el.textContent = Math.round(eased * target);
       if (progress < 1) requestAnimationFrame(step);
@@ -184,6 +184,7 @@
   cards.forEach((_, i) => {
     const dot = document.createElement('button');
     dot.className  = 'testimonial-dot' + (i === 0 ? ' active' : '');
+    // aria-label uses 1-based index (user-friendly); data-index is 0-based for goTo()
     dot.setAttribute('aria-label', `Ir para depoimento ${i + 1}`);
     dot.dataset.index = i;
     dotsWrap.appendChild(dot);
