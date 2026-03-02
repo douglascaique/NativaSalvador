@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nativa Salvador – Descubra o melhor do turismo em Salvador, Bahia. Passeios, praias, gastronomia e cultura afro-baiana." />
+  <title>Nativa Salvador – Turismo em Salvador, Bahia</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===================== HEADER / NAV ===================== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#hero" class="logo" aria-label="Nativa Salvador">
+        <span class="logo__icon">🌴</span>
+        <span class="logo__text">Nativa<strong>Salvador</strong></span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Navegação principal">
+        <ul class="nav__list">
+          <li><a href="#about"    class="nav__link">Sobre</a></li>
+          <li><a href="#tours"    class="nav__link">Passeios</a></li>
+          <li><a href="#gallery"  class="nav__link">Galeria</a></li>
+          <li><a href="#testimonials" class="nav__link">Depoimentos</a></li>
+          <li><a href="#contact"  class="nav__link nav__link--cta">Reservar</a></li>
+        </ul>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero">
+    <div class="hero__overlay"></div>
+    <div class="container hero__content">
+      <p class="hero__tagline reveal">Bem-vindo a Salvador, Bahia</p>
+      <h1 class="hero__title reveal">Descubra a Magia<br />da Cidade Sorriso</h1>
+      <p class="hero__subtitle reveal">Passeios autênticos, praias deslumbrantes e a cultura afro-baiana mais vibrante do Brasil.</p>
+      <div class="hero__actions reveal">
+        <a href="#tours"   class="btn btn--primary">Ver Passeios</a>
+        <a href="#contact" class="btn btn--outline">Fale Conosco</a>
+      </div>
+    </div>
+    <a href="#about" class="hero__scroll" aria-label="Rolar para baixo">
+      <span class="hero__scroll-arrow"></span>
+    </a>
+  </section>
+
+  <!-- ===================== HIGHLIGHTS (NUMBERS) ===================== -->
+  <section class="highlights" aria-label="Números">
+    <div class="container highlights__grid">
+      <div class="highlight-card reveal">
+        <span class="highlight-card__number" data-count="1500">0</span><span class="highlight-card__suffix">+</span>
+        <p class="highlight-card__label">Clientes Satisfeitos</p>
+      </div>
+      <div class="highlight-card reveal">
+        <span class="highlight-card__number" data-count="30">0</span><span class="highlight-card__suffix">+</span>
+        <p class="highlight-card__label">Roteiros Exclusivos</p>
+      </div>
+      <div class="highlight-card reveal">
+        <span class="highlight-card__number" data-count="10">0</span><span class="highlight-card__suffix">+</span>
+        <p class="highlight-card__label">Anos de Experiência</p>
+      </div>
+      <div class="highlight-card reveal">
+        <span class="highlight-card__number" data-count="98">0</span><span class="highlight-card__suffix">%</span>
+        <p class="highlight-card__label">Avaliações Positivas</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="about section" id="about">
+    <div class="container about__inner">
+      <div class="about__image-wrap reveal">
+        <div class="about__image-placeholder" aria-hidden="true">
+          <span>🏖️</span>
+        </div>
+      </div>
+      <div class="about__text reveal">
+        <span class="section__label">Quem Somos</span>
+        <h2 class="section__title">Sua Agência Local em Salvador</h2>
+        <p>Somos apaixonados por Salvador e queremos que você vivencie cada canto desta cidade incrível. Dos ladrilhos coloridos do Pelourinho às águas cristalinas de Morro de São Paulo, nossa equipe de guias nativos cria experiências inesquecíveis.</p>
+        <p>Cada roteiro é planejado com cuidado, respeitando a cultura local e oferecendo conforto e segurança para você e sua família.</p>
+        <a href="#tours" class="btn btn--primary">Nossos Passeios</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TOURS ===================== -->
+  <section class="tours section section--alt" id="tours">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__label">Experiências</span>
+        <h2 class="section__title">Passeios em Destaque</h2>
+        <p class="section__subtitle">Escolha o seu roteiro e viva Salvador do jeito que você merece.</p>
+      </div>
+
+      <div class="tours__grid">
+
+        <article class="tour-card reveal">
+          <div class="tour-card__badge">Popular</div>
+          <div class="tour-card__thumb" aria-hidden="true"><span>🏛️</span></div>
+          <div class="tour-card__body">
+            <h3 class="tour-card__title">Pelourinho e Centro Histórico</h3>
+            <p class="tour-card__desc">Mergulhe na história colonial e na arte afro-baiana do coração de Salvador.</p>
+            <ul class="tour-card__info">
+              <li>⏱ 4 horas</li>
+              <li>👥 Até 10 pessoas</li>
+              <li>🗓 Todos os dias</li>
+            </ul>
+            <div class="tour-card__footer">
+              <span class="tour-card__price">R$ 89 <small>/pessoa</small></span>
+              <a href="#contact" class="btn btn--sm btn--primary">Reservar</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="tour-card reveal">
+          <div class="tour-card__thumb" aria-hidden="true"><span>🌊</span></div>
+          <div class="tour-card__body">
+            <h3 class="tour-card__title">Praias do Litoral Norte</h3>
+            <p class="tour-card__desc">Areias brancas e mar de cocos em Guarajuba, Itacimirim e Açu da Torre.</p>
+            <ul class="tour-card__info">
+              <li>⏱ Dia inteiro</li>
+              <li>👥 Até 15 pessoas</li>
+              <li>🗓 Sáb & Dom</li>
+            </ul>
+            <div class="tour-card__footer">
+              <span class="tour-card__price">R$ 129 <small>/pessoa</small></span>
+              <a href="#contact" class="btn btn--sm btn--primary">Reservar</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="tour-card reveal">
+          <div class="tour-card__thumb" aria-hidden="true"><span>🥁</span></div>
+          <div class="tour-card__body">
+            <h3 class="tour-card__title">Cultura & Gastronomia Baiana</h3>
+            <p class="tour-card__desc">Capoeira, candomblé, acarajé e os sabores únicos da culinária afro-baiana.</p>
+            <ul class="tour-card__info">
+              <li>⏱ 5 horas</li>
+              <li>👥 Até 8 pessoas</li>
+              <li>🗓 Qua, Sex & Sáb</li>
+            </ul>
+            <div class="tour-card__footer">
+              <span class="tour-card__price">R$ 109 <small>/pessoa</small></span>
+              <a href="#contact" class="btn btn--sm btn--primary">Reservar</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="tour-card reveal">
+          <div class="tour-card__thumb" aria-hidden="true"><span>⛵</span></div>
+          <div class="tour-card__body">
+            <h3 class="tour-card__title">Passeio de Escuna na Baía</h3>
+            <p class="tour-card__desc">Navegue pela Baía de Todos os Santos com vista para o pôr do sol salvador.</p>
+            <ul class="tour-card__info">
+              <li>⏱ 3 horas</li>
+              <li>👥 Até 20 pessoas</li>
+              <li>🗓 Ter, Qui & Sáb</li>
+            </ul>
+            <div class="tour-card__footer">
+              <span class="tour-card__price">R$ 99 <small>/pessoa</small></span>
+              <a href="#contact" class="btn btn--sm btn--primary">Reservar</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="tour-card reveal">
+          <div class="tour-card__thumb" aria-hidden="true"><span>🌿</span></div>
+          <div class="tour-card__body">
+            <h3 class="tour-card__title">Cachoeiras da Chapada</h3>
+            <p class="tour-card__desc">Um dia de aventura nas cachoeiras e trilhas da Chapada Diamantina.</p>
+            <ul class="tour-card__info">
+              <li>⏱ Dia inteiro</li>
+              <li>👥 Até 12 pessoas</li>
+              <li>🗓 Sob consulta</li>
+            </ul>
+            <div class="tour-card__footer">
+              <span class="tour-card__price">R$ 219 <small>/pessoa</small></span>
+              <a href="#contact" class="btn btn--sm btn--primary">Reservar</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="tour-card reveal">
+          <div class="tour-card__badge tour-card__badge--new">Novo</div>
+          <div class="tour-card__thumb" aria-hidden="true"><span>🌅</span></div>
+          <div class="tour-card__body">
+            <h3 class="tour-card__title">Pôr do Sol no Farol da Barra</h3>
+            <p class="tour-card__desc">O espetáculo diário do pôr do sol no cartão-postal mais famoso de Salvador.</p>
+            <ul class="tour-card__info">
+              <li>⏱ 2 horas</li>
+              <li>👥 Até 15 pessoas</li>
+              <li>🗓 Todos os dias</li>
+            </ul>
+            <div class="tour-card__footer">
+              <span class="tour-card__price">R$ 59 <small>/pessoa</small></span>
+              <a href="#contact" class="btn btn--sm btn--primary">Reservar</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALLERY ===================== -->
+  <section class="gallery section" id="gallery">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__label">Galeria</span>
+        <h2 class="section__title">Salvador em Imagens</h2>
+        <p class="section__subtitle">Inspire-se e planeje sua próxima viagem.</p>
+      </div>
+
+      <div class="gallery__grid">
+        <button class="gallery__item reveal" data-caption="Pelourinho – Centro Histórico" aria-label="Ver imagem: Pelourinho">
+          <div class="gallery__placeholder" aria-hidden="true"><span>🏛️</span></div>
+          <div class="gallery__overlay"><span>Pelourinho</span></div>
+        </button>
+        <button class="gallery__item reveal" data-caption="Praia do Porto da Barra" aria-label="Ver imagem: Porto da Barra">
+          <div class="gallery__placeholder" aria-hidden="true"><span>🏖️</span></div>
+          <div class="gallery__overlay"><span>Porto da Barra</span></div>
+        </button>
+        <button class="gallery__item reveal" data-caption="Farol da Barra ao pôr do sol" aria-label="Ver imagem: Farol da Barra">
+          <div class="gallery__placeholder" aria-hidden="true"><span>🌅</span></div>
+          <div class="gallery__overlay"><span>Farol da Barra</span></div>
+        </button>
+        <button class="gallery__item reveal" data-caption="Baía de Todos os Santos" aria-label="Ver imagem: Baía de Todos os Santos">
+          <div class="gallery__placeholder" aria-hidden="true"><span>⛵</span></div>
+          <div class="gallery__overlay"><span>Baía de Todos os Santos</span></div>
+        </button>
+        <button class="gallery__item reveal" data-caption="Acarajé – Gastronomia Baiana" aria-label="Ver imagem: Acarajé">
+          <div class="gallery__placeholder" aria-hidden="true"><span>🍽️</span></div>
+          <div class="gallery__overlay"><span>Gastronomia Baiana</span></div>
+        </button>
+        <button class="gallery__item reveal" data-caption="Carnaval de Salvador" aria-label="Ver imagem: Carnaval">
+          <div class="gallery__placeholder" aria-hidden="true"><span>🎉</span></div>
+          <div class="gallery__overlay"><span>Carnaval de Salvador</span></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualizador de imagem" hidden>
+      <button class="lightbox__close" id="lightboxClose" aria-label="Fechar">&times;</button>
+      <div class="lightbox__content">
+        <div class="lightbox__image-wrap">
+          <div class="lightbox__placeholder" id="lightboxImage" aria-hidden="true"></div>
+        </div>
+        <p class="lightbox__caption" id="lightboxCaption"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section class="testimonials section section--alt" id="testimonials">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__label">Depoimentos</span>
+        <h2 class="section__title">O Que Dizem Nossos Viajantes</h2>
+      </div>
+
+      <div class="testimonials__slider" id="testimonialsSlider" aria-live="polite">
+
+        <div class="testimonial-card active">
+          <p class="testimonial-card__text">"A Nativa Salvador transformou nossa viagem! O guia conhecia cada canto da cidade e nos levou a lugares que jamais encontraríamos sozinhos. Recomendo de olhos fechados!"</p>
+          <div class="testimonial-card__author">
+            <span class="testimonial-card__avatar">👩</span>
+            <div>
+              <strong>Ana Carolina Silva</strong>
+              <span>São Paulo, SP</span>
+            </div>
+          </div>
+          <div class="testimonial-card__stars" aria-label="5 estrelas">★★★★★</div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-card__text">"Passeio de escuna incrível! Saímos ao pôr do sol e a vista era simplesmente mágica. Equipe super atenciosa e pontual. Com certeza voltaremos!"</p>
+          <div class="testimonial-card__author">
+            <span class="testimonial-card__avatar">👨</span>
+            <div>
+              <strong>Ricardo Mendonça</strong>
+              <span>Rio de Janeiro, RJ</span>
+            </div>
+          </div>
+          <div class="testimonial-card__stars" aria-label="5 estrelas">★★★★★</div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-card__text">"A experiência gastronômica foi o ponto alto da viagem. Aprendemos a fazer acarajé e ainda assistimos a uma apresentação de capoeira. Imperdível!"</p>
+          <div class="testimonial-card__author">
+            <span class="testimonial-card__avatar">👩</span>
+            <div>
+              <strong>Juliana Ferreira</strong>
+              <span>Belo Horizonte, MG</span>
+            </div>
+          </div>
+          <div class="testimonial-card__stars" aria-label="5 estrelas">★★★★★</div>
+        </div>
+
+      </div>
+
+      <div class="testimonials__controls" role="group" aria-label="Controles do slider de depoimentos">
+        <button class="testimonials__btn" id="testimonialPrev" aria-label="Depoimento anterior">&#8592;</button>
+        <div class="testimonials__dots" id="testimonialDots" aria-label="Indicadores"></div>
+        <button class="testimonials__btn" id="testimonialNext" aria-label="Próximo depoimento">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="contact section" id="contact">
+    <div class="container contact__inner">
+      <div class="contact__info reveal">
+        <span class="section__label">Contato</span>
+        <h2 class="section__title">Planeje Sua Aventura</h2>
+        <p>Preencha o formulário e entraremos em contato em até 24 horas para montar o roteiro perfeito para você.</p>
+        <ul class="contact__details">
+          <li>📍 Salvador, Bahia – Brasil</li>
+          <li>📞 (71) 99999-0000</li>
+          <li>✉️ contato@nativasalvador.com.br</li>
+          <li>⏰ Seg–Sáb: 8h às 20h</li>
+        </ul>
+      </div>
+
+      <form class="contact__form reveal" id="contactForm" novalidate aria-label="Formulário de contato">
+        <div class="form-group">
+          <label for="name">Nome completo <span aria-hidden="true">*</span></label>
+          <input type="text" id="name" name="name" placeholder="Seu nome" required autocomplete="name" />
+          <span class="form-error" id="nameError" role="alert"></span>
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail <span aria-hidden="true">*</span></label>
+          <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email" />
+          <span class="form-error" id="emailError" role="alert"></span>
+        </div>
+        <div class="form-group">
+          <label for="phone">Telefone / WhatsApp</label>
+          <input type="tel" id="phone" name="phone" placeholder="(71) 99999-9999" autocomplete="tel" />
+        </div>
+        <div class="form-group">
+          <label for="tour">Passeio de interesse</label>
+          <select id="tour" name="tour">
+            <option value="">Selecione um passeio…</option>
+            <option value="pelourinho">Pelourinho e Centro Histórico</option>
+            <option value="praias">Praias do Litoral Norte</option>
+            <option value="cultura">Cultura &amp; Gastronomia Baiana</option>
+            <option value="escuna">Passeio de Escuna na Baía</option>
+            <option value="chapada">Cachoeiras da Chapada</option>
+            <option value="farol">Pôr do Sol no Farol da Barra</option>
+            <option value="outro">Outro / Roteiro personalizado</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Mensagem <span aria-hidden="true">*</span></label>
+          <textarea id="message" name="message" rows="4" placeholder="Conte-nos sobre sua viagem, datas, número de pessoas…" required></textarea>
+          <span class="form-error" id="messageError" role="alert"></span>
+        </div>
+        <button type="submit" class="btn btn--primary btn--full">Enviar Mensagem ✉️</button>
+        <p class="form-success" id="formSuccess" hidden role="status">✅ Mensagem enviada! Retornaremos em breve.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#hero" class="logo" aria-label="Nativa Salvador">
+          <span class="logo__icon">🌴</span>
+          <span class="logo__text">Nativa<strong>Salvador</strong></span>
+        </a>
+        <p>Vivendo e compartilhando o melhor de Salvador, Bahia.</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Links do rodapé">
+        <h3>Links Rápidos</h3>
+        <ul>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#tours">Passeios</a></li>
+          <li><a href="#gallery">Galeria</a></li>
+          <li><a href="#testimonials">Depoimentos</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__social">
+        <h3>Redes Sociais</h3>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram" class="social-link">📸 Instagram</a>
+          <a href="#" aria-label="Facebook"  class="social-link">👍 Facebook</a>
+          <a href="#" aria-label="WhatsApp"  class="social-link">💬 WhatsApp</a>
+          <a href="#" aria-label="TripAdvisor" class="social-link">🌐 TripAdvisor</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; <span id="currentYear"></span> Nativa Salvador. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Back-to-top button -->
+  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo" hidden>&#8679;</button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
