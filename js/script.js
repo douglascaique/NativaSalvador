@@ -1,572 +1,306 @@
-// ===================================
-// NATIVA SALVADOR - JAVASCRIPT
-// ===================================
+/* ============================================================
+   Nativa Salvador – Tourism Landing Page JavaScript
+   ============================================================ */
 
-// ===================================
-// DOM ELEMENTS
-// ===================================
-const menuToggle = document.getElementById('menuToggle');
-const navMenu = document.getElementById('navMenu');
-const scrollTopBtn = document.getElementById('scrollTop');
-const faqQuestions = document.querySelectorAll('.faq-question');
-const contactForm = document.getElementById('contactForm');
-const formMessage = document.getElementById('formMessage');
+(function () {
+  'use strict';
 
-// ===================================
-// DATE & TIME DISPLAY
-// ===================================
-function updateDateTime() {
-    const dateTimeElement = document.getElementById('dateTime');
-    const now = new Date();
-    
-    const options = {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-    };
-    
-    const formattedDate = now.toLocaleDateString('pt-BR', options);
-    dateTimeElement.textContent = formattedDate;
-}
+  /* ----------------------------------------------------------
+     Utilities
+  ---------------------------------------------------------- */
+  const qs  = (sel, ctx = document) => ctx.querySelector(sel);
+  const qsa = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
-// Update date/time every minute
-updateDateTime();
-setInterval(updateDateTime, 60000);
+  /* ----------------------------------------------------------
+     1. Sticky header + active nav link highlight
+  ---------------------------------------------------------- */
+  const header = qs('#header');
 
-// ===================================
-// MOBILE MENU TOGGLE
-// ===================================
-if (menuToggle) {
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        
-        // Change icon
-        const icon = menuToggle.querySelector('i');
-        if (navMenu.classList.contains('active')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
+  function updateHeader() {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  }
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  updateHeader();
+
+  // Highlight active nav link based on scroll position
+  const sections  = qsa('section[id]');
+  const navLinks  = qsa('.nav__link');
+
+  function highlightNav() {
+    let current = '';
+    sections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - 100) current = sec.id;
     });
-}
-
-// Close mobile menu when clicking on a link
-const navLinks = document.querySelectorAll('.nav-menu a');
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-            navMenu.classList.remove('active');
-            const icon = menuToggle.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href').replace('#', '');
+      link.classList.toggle('nav__link--active', href === current);
     });
-});
+  }
+  window.addEventListener('scroll', highlightNav, { passive: true });
 
-// ===================================
-// SMOOTH SCROLL FOR ANCHOR LINKS
-// ===================================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        
-        if (target) {
-            const headerOffset = 80;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+  /* ----------------------------------------------------------
+     2. Mobile hamburger menu
+  ---------------------------------------------------------- */
+  const hamburger = qs('#hamburger');
+  const nav       = qs('#nav');
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
+  hamburger.addEventListener('click', () => {
+    const isOpen = hamburger.classList.toggle('open');
+    nav.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
 
-// ===================================
-// SCROLL TO TOP BUTTON
-// ===================================
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        scrollTopBtn.classList.add('visible');
-    } else {
-        scrollTopBtn.classList.remove('visible');
+  // Close nav when a link is clicked
+  nav.addEventListener('click', e => {
+    if (e.target.closest('.nav__link')) {
+      hamburger.classList.remove('open');
+      nav.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
     }
-    
-    // Add shadow to header on scroll
-    const header = document.querySelector('.header');
-    if (window.pageYOffset > 0) {
-        header.style.boxShadow = '0 2px 16px rgba(0, 0, 0, 0.1)';
-    } else {
-        header.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1)';
-    }
-});
+  });
 
-if (scrollTopBtn) {
-    scrollTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-}
+  /* ----------------------------------------------------------
+     3. Smooth scroll for anchor links
+  ---------------------------------------------------------- */
+  document.addEventListener('click', e => {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+    const target = qs(link.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    const offset = header.offsetHeight;
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
+  });
 
-// ===================================
-// FAQ ACCORDION
-// ===================================
-faqQuestions.forEach(question => {
-    question.addEventListener('click', () => {
-        const answer = question.nextElementSibling;
-        const isActive = question.classList.contains('active');
-        
-        // Close all other FAQs
-        faqQuestions.forEach(q => {
-            q.classList.remove('active');
-            q.nextElementSibling.classList.remove('active');
-        });
-        
-        // Toggle current FAQ
-        if (!isActive) {
-            question.classList.add('active');
-            answer.classList.add('active');
-        }
-    });
-});
+  /* ----------------------------------------------------------
+     4. Scroll-reveal animation
+  ---------------------------------------------------------- */
+  const revealEls = qsa('.reveal');
 
-// ===================================
-// CONTACT FORM HANDLING
-// ===================================
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            phone: document.getElementById('phone').value,
-            package: document.getElementById('package').value,
-            date: document.getElementById('date').value,
-            guests: document.getElementById('guests').value,
-            message: document.getElementById('message').value
-        };
-        
-        // Validate form
-        if (!formData.name || !formData.email || !formData.phone) {
-            showFormMessage('Por favor, preencha todos os campos obrigatórios.', 'error');
-            return;
-        }
-        
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(formData.email)) {
-            showFormMessage('Por favor, insira um e-mail válido.', 'error');
-            return;
-        }
-        
-        // Simulate form submission
-        showFormMessage('Enviando sua solicitação...', 'success');
-        
-        // In a real application, you would send this data to a server
-        setTimeout(() => {
-            // Create WhatsApp message
-            const whatsappMessage = createWhatsAppMessage(formData);
-            const whatsappURL = `https://wa.me/5571999999999?text=${encodeURIComponent(whatsappMessage)}`;
-            
-            // Show success message
-            showFormMessage(
-                'Sua solicitação foi recebida! Redirecionando para WhatsApp...',
-                'success'
-            );
-            
-            // Reset form
-            contactForm.reset();
-            
-            // Redirect to WhatsApp after 2 seconds
-            setTimeout(() => {
-                window.open(whatsappURL, '_blank');
-            }, 2000);
-        }, 1000);
-    });
-}
-
-// ===================================
-// HELPER FUNCTIONS
-// ===================================
-function showFormMessage(message, type) {
-    formMessage.textContent = message;
-    formMessage.className = `form-message ${type}`;
-    formMessage.style.display = 'block';
-    
-    // Hide message after 5 seconds for errors
-    if (type === 'error') {
-        setTimeout(() => {
-            formMessage.style.display = 'none';
-        }, 5000);
-    }
-}
-
-function createWhatsAppMessage(data) {
-    let message = '🌴 *SOLICITAÇÃO DE RESERVA - NATIVA SALVADOR* 🌴\n\n';
-    message += `*Nome:* ${data.name}\n`;
-    message += `*E-mail:* ${data.email}\n`;
-    message += `*Telefone:* ${data.phone}\n`;
-    
-    if (data.package) {
-        const packages = {
-            'essencial': 'Essencial - R$ 8.900',
-            'premium': 'Premium - R$ 12.500',
-            'vip': 'VIP Exclusivo - R$ 18.900',
-            'custom': 'Personalizado'
-        };
-        message += `*Pacote:* ${packages[data.package]}\n`;
-    }
-    
-    if (data.date) {
-        message += `*Data Preferencial:* ${formatDate(data.date)}\n`;
-    }
-    
-    if (data.guests) {
-        message += `*Número de Pessoas:* ${data.guests}\n`;
-    }
-    
-    if (data.message) {
-        message += `\n*Mensagem:*\n${data.message}\n`;
-    }
-    
-    message += '\n_Aguardo retorno com mais informações!_';
-    
-    return message;
-}
-
-function formatDate(dateString) {
-    const date = new Date(dateString + 'T00:00:00');
-    return date.toLocaleDateString('pt-BR', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric'
-    });
-}
-
-// ===================================
-// INTERSECTION OBSERVER FOR ANIMATIONS
-// ===================================
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in-up');
-            observer.unobserve(entry.target);
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
         }
-    });
-}, observerOptions);
+      });
+    },
+    { threshold: 0.15 }
+  );
 
-// Observe elements for animation
-const animateElements = document.querySelectorAll(
-    '.feature-card, .roteiro-card, .pricing-card, .testimonial-card, .inclusion-item'
-);
+  revealEls.forEach(el => revealObserver.observe(el));
 
-animateElements.forEach(element => {
-    observer.observe(element);
-});
+  /* ----------------------------------------------------------
+     5. Animated counter (Highlights section)
+  ---------------------------------------------------------- */
+  const counterEls = qsa('.highlight-card__number[data-count]');
 
-// ===================================
-// PRICING CARD HOVER EFFECTS
-// ===================================
-const pricingCards = document.querySelectorAll('.pricing-card');
-pricingCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.borderColor = 'var(--primary-color)';
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        if (!card.classList.contains('featured')) {
-            card.style.borderColor = 'transparent';
-        }
-    });
-});
+  function animateCounter(el) {
+    const target   = parseInt(el.dataset.count, 10);
+    const duration = 1800;
+    const start    = performance.now();
 
-// ===================================
-// LAZY LOADING IMAGES
-// ===================================
-const images = document.querySelectorAll('img');
-const imageObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
+    function step(now) {
+      const elapsed  = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // ease-out cubic
+      const eased    = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  const counterObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
-            const img = entry.target;
-            img.style.opacity = '0';
-            img.style.transition = 'opacity 0.5s ease';
-            
-            img.onload = () => {
-                img.style.opacity = '1';
-            };
-            
-            imageObserver.unobserve(img);
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
         }
+      });
+    },
+    { threshold: 0.4 }
+  );
+
+  counterEls.forEach(el => counterObserver.observe(el));
+
+  /* ----------------------------------------------------------
+     6. Gallery lightbox
+  ---------------------------------------------------------- */
+  const lightbox        = qs('#lightbox');
+  const lightboxClose   = qs('#lightboxClose');
+  const lightboxImage   = qs('#lightboxImage');
+  const lightboxCaption = qs('#lightboxCaption');
+  const galleryItems    = qsa('.gallery__item');
+
+  function openLightbox(item) {
+    const caption   = item.dataset.caption || '';
+    const emoji     = item.querySelector('.gallery__placeholder').textContent.trim();
+    lightboxImage.textContent   = emoji;
+    lightboxCaption.textContent = caption;
+    lightbox.removeAttribute('hidden');
+    document.body.style.overflow = 'hidden';
+    lightboxClose.focus();
+  }
+
+  function closeLightbox() {
+    lightbox.setAttribute('hidden', '');
+    document.body.style.overflow = '';
+  }
+
+  galleryItems.forEach(item => {
+    item.addEventListener('click', () => openLightbox(item));
+  });
+
+  lightboxClose.addEventListener('click', closeLightbox);
+
+  // Close on backdrop click
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !lightbox.hasAttribute('hidden')) closeLightbox();
+  });
+
+  /* ----------------------------------------------------------
+     7. Testimonials slider
+  ---------------------------------------------------------- */
+  const slider    = qs('#testimonialsSlider');
+  const cards     = qsa('.testimonial-card', slider);
+  const dotsWrap  = qs('#testimonialDots');
+  const prevBtn   = qs('#testimonialPrev');
+  const nextBtn   = qs('#testimonialNext');
+  let   current   = 0;
+  let   autoTimer = null;
+
+  // Build dots
+  cards.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className  = 'testimonial-dot' + (i === 0 ? ' active' : '');
+    // aria-label uses 1-based index (user-friendly); data-index is 0-based for goTo()
+    dot.setAttribute('aria-label', `Ir para depoimento ${i + 1}`);
+    dot.dataset.index = i;
+    dotsWrap.appendChild(dot);
+  });
+
+  const dots = qsa('.testimonial-dot', dotsWrap);
+
+  function goTo(index) {
+    cards[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (index + cards.length) % cards.length;
+    cards[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  prevBtn.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+  nextBtn.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+
+  dotsWrap.addEventListener('click', e => {
+    const dot = e.target.closest('.testimonial-dot');
+    if (!dot) return;
+    goTo(parseInt(dot.dataset.index, 10));
+    resetAuto();
+  });
+
+  function startAuto() {
+    autoTimer = setInterval(() => goTo(current + 1), 5000);
+  }
+  function resetAuto() {
+    clearInterval(autoTimer);
+    startAuto();
+  }
+  startAuto();
+
+  /* ----------------------------------------------------------
+     8. Contact form validation
+  ---------------------------------------------------------- */
+  const contactForm   = qs('#contactForm');
+  const formSuccess   = qs('#formSuccess');
+
+  function validateField(id, errorId, check, message) {
+    const field = qs(`#${id}`);
+    const error = qs(`#${errorId}`);
+    if (!field) return true;
+    const valid = check(field.value.trim());
+    field.classList.toggle('error', !valid);
+    error.textContent = valid ? '' : message;
+    return valid;
+  }
+
+  function validateForm() {
+    const nameOk = validateField(
+      'name', 'nameError',
+      v => v.length >= 3,
+      'Por favor, informe seu nome completo.'
+    );
+    const emailOk = validateField(
+      'email', 'emailError',
+      v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
+      'Por favor, informe um e-mail válido.'
+    );
+    const messageOk = validateField(
+      'message', 'messageError',
+      v => v.length >= 10,
+      'Sua mensagem deve ter pelo menos 10 caracteres.'
+    );
+    return nameOk && emailOk && messageOk;
+  }
+
+  if (contactForm) {
+    // Live validation on blur
+    ['name', 'email', 'message'].forEach(id => {
+      const el = qs(`#${id}`);
+      if (el) el.addEventListener('blur', validateForm);
     });
-});
 
-images.forEach(img => {
-    imageObserver.observe(img);
-});
+    contactForm.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!validateForm()) return;
 
-// ===================================
-// HERO PARALLAX EFFECT
-// ===================================
-const hero = document.querySelector('.hero');
-if (hero) {
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const parallaxSpeed = 0.5;
-        hero.style.backgroundPositionY = `${scrolled * parallaxSpeed}px`;
+      // Simulate async submission
+      const submitBtn = contactForm.querySelector('[type="submit"]');
+      submitBtn.disabled    = true;
+      submitBtn.textContent = 'Enviando…';
+
+      setTimeout(() => {
+        contactForm.reset();
+        submitBtn.disabled    = false;
+        submitBtn.textContent = 'Enviar Mensagem ✉️';
+        formSuccess.removeAttribute('hidden');
+        setTimeout(() => formSuccess.setAttribute('hidden', ''), 6000);
+      }, 1200);
     });
-}
+  }
 
-// ===================================
-// STATS COUNTER ANIMATION
-// ===================================
-function animateCounter(element, target, duration = 2000) {
-    const start = 0;
-    const increment = target / (duration / 16);
-    let current = start;
-    
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            element.textContent = target;
-            clearInterval(timer);
-        } else {
-            element.textContent = Math.floor(current);
-        }
-    }, 16);
-}
+  /* ----------------------------------------------------------
+     9. Back-to-top button
+  ---------------------------------------------------------- */
+  const backToTop = qs('#backToTop');
 
-// Observe stats section for counter animation
-const statsSection = document.querySelector('.stats');
-if (statsSection) {
-    const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const statNumbers = document.querySelectorAll('.stat-number');
-                statNumbers.forEach(stat => {
-                    const text = stat.textContent;
-                    if (!isNaN(text)) {
-                        animateCounter(stat, parseInt(text));
-                    }
-                });
-                statsObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    statsObserver.observe(statsSection);
-}
-
-// ===================================
-// ROTEIRO CARD CLICK TRACKING
-// ===================================
-const roteiroCards = document.querySelectorAll('.roteiro-card');
-roteiroCards.forEach(card => {
-    card.addEventListener('click', () => {
-        const day = card.getAttribute('data-day');
-        const title = card.querySelector('.roteiro-title').textContent;
-        console.log(`Clicked: Day ${day} - ${title}`);
-        
-        // Add pulse animation
-        card.style.animation = 'none';
-        setTimeout(() => {
-            card.style.animation = 'pulse 0.5s ease';
-        }, 10);
-    });
-});
-
-// ===================================
-// PRICE CALCULATION HELPER
-// ===================================
-function calculateGroupDiscount(basePrice, numberOfPeople) {
-    if (numberOfPeople >= 6) {
-        return basePrice * 0.9; // 10% discount
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+      backToTop.removeAttribute('hidden');
+    } else {
+      backToTop.setAttribute('hidden', '');
     }
-    return basePrice;
-}
+  }, { passive: true });
 
-// Add price calculator to guests input
-const guestsInput = document.getElementById('guests');
-if (guestsInput) {
-    guestsInput.addEventListener('change', () => {
-        const guests = parseInt(guestsInput.value);
-        if (guests >= 6) {
-            showFormMessage(
-                `🎉 Grupo de ${guests} pessoas elegível para desconto de 10%!`,
-                'success'
-            );
-        }
-    });
-}
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
-// ===================================
-// SOCIAL MEDIA TRACKING
-// ===================================
-const socialLinks = document.querySelectorAll('.social-link, .footer-social a');
-socialLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        const platform = link.querySelector('i').classList[1].replace('fa-', '');
-        console.log(`Social media click: ${platform}`);
-    });
-});
+  /* ----------------------------------------------------------
+     10. Footer – current year
+  ---------------------------------------------------------- */
+  const yearEl = qs('#currentYear');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// ===================================
-// TESTIMONIAL CAROUSEL (OPTIONAL)
-// ===================================
-const testimonialCards = document.querySelectorAll('.testimonial-card');
-let currentTestimonial = 0;
-
-function showTestimonial(index) {
-    testimonialCards.forEach((card, i) => {
-        if (i === index) {
-            card.style.transform = 'scale(1.05)';
-            card.style.boxShadow = 'var(--shadow-lg)';
-        } else {
-            card.style.transform = 'scale(1)';
-            card.style.boxShadow = 'var(--shadow-md)';
-        }
-    });
-}
-
-// Auto-rotate testimonials every 5 seconds
-if (testimonialCards.length > 0) {
-    setInterval(() => {
-        currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
-        showTestimonial(currentTestimonial);
-    }, 5000);
-}
-
-// ===================================
-// PHONE NUMBER FORMATTING
-// ===================================
-const phoneInput = document.getElementById('phone');
-if (phoneInput) {
-    phoneInput.addEventListener('input', (e) => {
-        let value = e.target.value.replace(/\D/g, '');
-        
-        if (value.length <= 11) {
-            if (value.length > 6) {
-                value = value.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
-            } else if (value.length > 2) {
-                value = value.replace(/(\d{2})(\d{0,5})/, '($1) $2');
-            } else if (value.length > 0) {
-                value = value.replace(/(\d{0,2})/, '($1');
-            }
-        }
-        
-        e.target.value = value;
-    });
-}
-
-// ===================================
-// COPY TO CLIPBOARD (FOR SOCIAL HANDLES)
-// ===================================
-const socialHandles = document.querySelectorAll('.social-handle, .footer-handle');
-socialHandles.forEach(handle => {
-    handle.style.cursor = 'pointer';
-    handle.title = 'Clique para copiar';
-    
-    handle.addEventListener('click', () => {
-        const text = handle.textContent;
-        navigator.clipboard.writeText(text).then(() => {
-            const originalText = handle.textContent;
-            handle.textContent = '✓ Copiado!';
-            handle.style.color = '#25D366';
-            
-            setTimeout(() => {
-                handle.textContent = originalText;
-                handle.style.color = '';
-            }, 2000);
-        });
-    });
-});
-
-// ===================================
-// PREVENT FORM DOUBLE SUBMISSION
-// ===================================
-if (contactForm) {
-    let isSubmitting = false;
-    
-    contactForm.addEventListener('submit', (e) => {
-        if (isSubmitting) {
-            e.preventDefault();
-            return false;
-        }
-        isSubmitting = true;
-        
-        setTimeout(() => {
-            isSubmitting = false;
-        }, 3000);
-    });
-}
-
-// ===================================
-// EASTER EGG - KONAMI CODE
-// ===================================
-let konamiCode = [];
-const konamiPattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-
-document.addEventListener('keydown', (e) => {
-    konamiCode.push(e.key);
-    konamiCode = konamiCode.slice(-10);
-    
-    if (konamiCode.join(',') === konamiPattern.join(',')) {
-        document.body.style.animation = 'rainbow 3s infinite';
-        setTimeout(() => {
-            document.body.style.animation = '';
-        }, 5000);
-    }
-});
-
-// ===================================
-// CONSOLE BRANDING
-// ===================================
-console.log('%c🌴 Nativa Salvador - The Soul of Bahia 🌴', 'font-size: 20px; color: #D85E38; font-weight: bold;');
-console.log('%cDesenvolvido com ❤️ para experiências autênticas', 'font-size: 12px; color: #6B6B6B;');
-console.log('%c@NATIVASALVADOR.TUR', 'font-size: 14px; color: #2C5F4F; font-weight: bold;');
-
-// ===================================
-// PERFORMANCE MONITORING
-// ===================================
-window.addEventListener('load', () => {
-    const loadTime = performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart;
-    console.log(`⚡ Site carregado em ${loadTime}ms`);
-});
-
-// ===================================
-// SERVICE WORKER REGISTRATION (OPTIONAL)
-// ===================================
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        // Uncomment to enable service worker
-        // navigator.serviceWorker.register('/sw.js')
-        //     .then(reg => console.log('Service Worker registered'))
-        //     .catch(err => console.log('Service Worker registration failed'));
-    });
-}
-
-// ===================================
-// EXPORT FUNCTIONS FOR TESTING
-// ===================================
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        calculateGroupDiscount,
-        formatDate,
-        createWhatsAppMessage
-    };
-}
+})();
