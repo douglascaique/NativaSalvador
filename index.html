@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nativa Salvador - Experiências autênticas de luxo na Bahia. Roteiros exclusivos, hospedagem boutique e acesso VIP à verdadeira Salvador.">
+    <title>Nativa Salvador | The Soul of Bahia</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="date-time" id="dateTime"></div>
+            </div>
+        </div>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="#" class="logo">
+                        <span class="logo-text">Nativa Salvador</span>
+                    </a>
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="#roteiros">Roteiros</a></li>
+                        <li><a href="#precos">Preços</a></li>
+                        <li><a href="#manifesto">Manifesto</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">The Soul of Bahia</h1>
+            <p class="hero-subtitle">Experiências autênticas de luxo em Salvador</p>
+            <p class="hero-description">
+                Imersão de 7 dias com acesso VIP aos lugares que o turismo comum não vê
+            </p>
+            <a href="#roteiros" class="btn btn-primary">Descubra Sua Jornada</a>
+        </div>
+        <div class="hero-scroll">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3 class="stat-number">7</h3>
+                    <p class="stat-label">Dias de Imersão</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="stat-number">10</h3>
+                    <p class="stat-label">Pessoas no Máximo</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="stat-number">100%</h3>
+                    <p class="stat-label">Experiência Autêntica</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="stat-number">24/7</h3>
+                    <p class="stat-label">Curadoria Exclusiva</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">O que nos diferencia</h2>
+                <p class="section-subtitle">A Bahia autêntica com o conforto que você merece</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">Grupos Reduzidos</h3>
+                    <p class="feature-description">Máximo 10 pessoas para experiências mais intimistas e personalizadas</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Contatos Nativos</h3>
+                    <p class="feature-description">Guias locais que abrem portas impossíveis para turistas convencionais</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3 class="feature-title">Caminhos Nativos</h3>
+                    <p class="feature-description">Roteiros exclusivos criados por quem nasceu e vive a cidade</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="feature-title">Impacto Ancestral</h3>
+                    <p class="feature-description">Conexão profunda com as raízes culturais e tradições baianas</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="feature-title">Hospedarias Boutique</h3>
+                    <p class="feature-description">Casarões barrocos no coração do Santo Antônio Além do Carmo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roteiro Section -->
+    <section id="roteiros" class="roteiros">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Seu Roteiro de 7 Dias</h2>
+                <p class="section-subtitle">Uma jornada pela essência de Salvador</p>
+            </div>
+            
+            <div class="roteiro-cards">
+                <!-- Day 1 -->
+                <div class="roteiro-card" data-day="1">
+                    <div class="roteiro-image">
+                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=500&fit=crop" alt="Batismo - Chegada em Salvador">
+                        <div class="roteiro-day">Dia 1</div>
+                    </div>
+                    <div class="roteiro-content">
+                        <h3 class="roteiro-title">BATISMO</h3>
+                        <p class="roteiro-description">Chegada a Salvador e transfer privado para nossa Pousada Boutique no Santo Antônio Além do Carmo. À noite, jantar de boas-vindas em terraço com vista para a Baía.</p>
+                        <ul class="roteiro-highlights">
+                            <li><i class="fas fa-check"></i> Hospedagem: Pousada Barroca (SAAC)</li>
+                            <li><i class="fas fa-check"></i> Jantar de Boas-vindas</li>
+                            <li><i class="fas fa-star"></i> Pôr do sol exclusivo no Carmo</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Day 2 -->
+                <div class="roteiro-card" data-day="2">
+                    <div class="roteiro-image">
+                        <img src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&h=500&fit=crop" alt="Desvendando a Cultura">
+                        <div class="roteiro-day">Dia 2</div>
+                    </div>
+                    <div class="roteiro-content">
+                        <h3 class="roteiro-title">DESVENDANDO A CULTURA</h3>
+                        <p class="roteiro-description">Tour "Porta Adentro" pelo Pelourinho visitando ateliês e museus. À tarde, imersão nas belezas do Subúrbio Ferroviário.</p>
+                        <ul class="roteiro-highlights">
+                            <li><i class="fas fa-check"></i> Walking Tour Histórico & Passeio</li>
+                            <li><i class="fas fa-check"></i> Almoço no Cuoco</li>
+                            <li><i class="fas fa-star"></i> Pôr do sol de ponto privilegiado</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Day 3 -->
+                <div class="roteiro-card" data-day="3">
+                    <div class="roteiro-image">
+                        <img src="https://images.unsplash.com/photo-1476610182048-b716b8518aae?w=800&h=500&fit=crop" alt="O Nascer da Baía">
+                        <div class="roteiro-day">Dia 3</div>
+                    </div>
+                    <div class="roteiro-content">
+                        <h3 class="roteiro-title">O NASCER DA BAÍA</h3>
+                        <p class="roteiro-description">Aula de Canoagem ao nascer do Sol e Futevôlei com atletas profissionais. Almoço na Pedra Furada e visita à Igreja do Bonfim.</p>
+                        <ul class="roteiro-highlights">
+                            <li><i class="fas fa-check"></i> Aula de Futevôlei & Canoagem</li>
+                            <li><i class="fas fa-check"></i> Almoço tropical com Frutos do Mar</li>
+                            <li><i class="fas fa-star"></i> Pôr do sol no Humaitá</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Day 4 -->
+                <div class="roteiro-card" data-day="4">
+                    <div class="roteiro-image">
+                        <img src="https://images.unsplash.com/photo-1540202404-a2f29016b523?w=800&h=500&fit=crop" alt="No Oásis dos Deuses">
+                        <div class="roteiro-day">Dia 4</div>
+                    </div>
+                    <div class="roteiro-content">
+                        <h3 class="roteiro-title">NO OÁSIS DOS DEUSES</h3>
+                        <p class="roteiro-description">Dia de luxo náutico em Lancha Privada exclusiva. Navegação pela Baía com parada na Ilha dos Frades e almoço no Restaurante da Preta.</p>
+                        <ul class="roteiro-highlights">
+                            <li><i class="fas fa-check"></i> Navegação em Lancha Privada</li>
+                            <li><i class="fas fa-check"></i> Almoço na Ilha</li>
+                            <li><i class="fas fa-star"></i> DJ e Bar tropical com infusões baianas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Day 5 -->
+                <div class="roteiro-card" data-day="5">
+                    <div class="roteiro-image">
+                        <img src="https://images.unsplash.com/photo-1483086431886-3590a88317fe?w=800&h=500&fit=crop" alt="Energia e Movimento">
+                        <div class="roteiro-day">Dia 5</div>
+                    </div>
+                    <div class="roteiro-content">
+                        <h3 class="roteiro-title">ENERGIA E MOVIMENTO</h3>
+                        <p class="roteiro-description">Workshop de Percussão Afrobrasileira e aula de dança. À tarde, Tour de Helicóptero sobrevoando Salvador. Jet Ski opcional.</p>
+                        <ul class="roteiro-highlights">
+                            <li><i class="fas fa-check"></i> Aula de Dança e Percussão</li>
+                            <li><i class="fas fa-check"></i> Voo Panorâmico</li>
+                            <li><i class="fas fa-star"></i> Jet Ski Expedition (Opcional)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Day 6 -->
+                <div class="roteiro-card" data-day="6">
+                    <div class="roteiro-image">
+                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&h=500&fit=crop" alt="Canto do povo de Um Lugar">
+                        <div class="roteiro-day">Dia 6</div>
+                    </div>
+                    <div class="roteiro-content">
+                        <h3 class="roteiro-title">CANTO DO POVO DE UM LUGAR</h3>
+                        <p class="roteiro-description">Visita à Feira de São Joaquim e Terreiro. À tarde, tour gastronômico pelas ruas culturais da Saúde. Noite com Jazz ao vivo ou Samba.</p>
+                        <ul class="roteiro-highlights">
+                            <li><i class="fas fa-check"></i> Tour Gastronômico Urbano</li>
+                            <li><i class="fas fa-check"></i> Almoço afetivo dos povos de axé</li>
+                            <li><i class="fas fa-star"></i> Vida noturna boêmia do Carmo</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Day 7 -->
+                <div class="roteiro-card" data-day="7">
+                    <div class="roteiro-image">
+                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=500&fit=crop" alt="Na Trilha do Verão">
+                        <div class="roteiro-day">Dia 7</div>
+                    </div>
+                    <div class="roteiro-content">
+                        <h3 class="roteiro-title">NA TRILHA DO VERÃO</h3>
+                        <p class="roteiro-description">Dia de praia na Estrada do Coco: Itacimirim, Diogo e Praia do Forte. Visita ao Projeto Tamar. Retorno pela orla com After de Despedida.</p>
+                        <ul class="roteiro-highlights">
+                            <li><i class="fas fa-check"></i> 150km de costa litorânea</li>
+                            <li><i class="fas fa-check"></i> Projeto Tamar</li>
+                            <li><i class="fas fa-star"></i> After de Despedida</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="precos" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Preços & Pacotes</h2>
+                <p class="section-subtitle">Investimento na experiência da sua vida</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <!-- Pacote Essencial -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Essencial</h3>
+                        <p class="pricing-subtitle">Para quem quer viver a essência</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price-currency">R$</span>
+                        <span class="price-amount">8.900</span>
+                        <span class="price-period">/pessoa</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 6 noites em Pousada Boutique</li>
+                        <li><i class="fas fa-check"></i> 6 cafés da manhã</li>
+                        <li><i class="fas fa-check"></i> 3 almoços especiais</li>
+                        <li><i class="fas fa-check"></i> 1 jantar de boas-vindas</li>
+                        <li><i class="fas fa-check"></i> Transporte privado (Van VIP)</li>
+                        <li><i class="fas fa-check"></i> Navegação em Lancha Privada</li>
+                        <li><i class="fas fa-check"></i> Todas as entradas e atividades</li>
+                        <li><i class="fas fa-check"></i> Curador disponível 24h</li>
+                        <li class="not-included"><i class="fas fa-times"></i> Voo de Helicóptero</li>
+                        <li class="not-included"><i class="fas fa-times"></i> Jet Ski Expedition</li>
+                    </ul>
+                    <a href="#contato" class="btn btn-outline">Solicitar Reserva</a>
+                </div>
+
+                <!-- Pacote Premium -->
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Mais Popular</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Premium</h3>
+                        <p class="pricing-subtitle">A experiência completa</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price-currency">R$</span>
+                        <span class="price-amount">12.500</span>
+                        <span class="price-period">/pessoa</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 6 noites em Pousada Boutique</li>
+                        <li><i class="fas fa-check"></i> 6 cafés da manhã</li>
+                        <li><i class="fas fa-check"></i> 4 almoços especiais</li>
+                        <li><i class="fas fa-check"></i> 2 jantares (boas-vindas + despedida)</li>
+                        <li><i class="fas fa-check"></i> Transporte privado (Van VIP)</li>
+                        <li><i class="fas fa-check"></i> Navegação em Lancha Privada</li>
+                        <li><i class="fas fa-check"></i> <strong>Voo de Helicóptero</strong></li>
+                        <li><i class="fas fa-check"></i> <strong>Jet Ski Expedition</strong></li>
+                        <li><i class="fas fa-check"></i> Todas as entradas e atividades</li>
+                        <li><i class="fas fa-check"></i> Curador disponível 24h</li>
+                    </ul>
+                    <a href="#contato" class="btn btn-primary">Garantir Vaga</a>
+                </div>
+
+                <!-- Pacote VIP -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">VIP Exclusivo</h3>
+                        <p class="pricing-subtitle">Para quem não aceita limites</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price-currency">R$</span>
+                        <span class="price-amount">18.900</span>
+                        <span class="price-period">/pessoa</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 6 noites em Suíte Master</li>
+                        <li><i class="fas fa-check"></i> Todas as refeições inclusas</li>
+                        <li><i class="fas fa-check"></i> <strong>Transfer em carro de luxo</strong></li>
+                        <li><i class="fas fa-check"></i> <strong>Iate exclusivo (não compartilhado)</strong></li>
+                        <li><i class="fas fa-check"></i> <strong>Voo de Helicóptero estendido</strong></li>
+                        <li><i class="fas fa-check"></i> <strong>Jet Ski Expedition premium</strong></li>
+                        <li><i class="fas fa-check"></i> <strong>Acesso VIP a ensaios de verão</strong></li>
+                        <li><i class="fas fa-check"></i> <strong>Sessão fotográfica profissional</strong></li>
+                        <li><i class="fas fa-check"></i> Curador pessoal 24h</li>
+                        <li><i class="fas fa-check"></i> <strong>Roteiro 100% customizável</strong></li>
+                    </ul>
+                    <a href="#contato" class="btn btn-outline">Experiência Única</a>
+                </div>
+            </div>
+
+            <div class="pricing-info">
+                <div class="info-box">
+                    <h4><i class="fas fa-info-circle"></i> Informações Importantes</h4>
+                    <ul>
+                        <li>Valores por pessoa em acomodação dupla</li>
+                        <li>Desconto de 10% para grupos acima de 6 pessoas</li>
+                        <li>Pacotes personalizados disponíveis sob consulta</li>
+                        <li>Pagamento parcelado em até 10x sem juros</li>
+                        <li>Política de cancelamento flexível até 30 dias antes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inclusions Section -->
+    <section class="inclusions">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">O que está incluído</h2>
+                <p class="section-subtitle">Tudo pensado para sua comodidade e imersão total</p>
+            </div>
+            
+            <div class="inclusions-grid">
+                <div class="inclusion-item">
+                    <i class="fas fa-bed"></i>
+                    <h4>Acomodação</h4>
+                    <p>6 noites em Pousada Boutique no Santo Antônio Além do Carmo</p>
+                </div>
+                <div class="inclusion-item">
+                    <i class="fas fa-car"></i>
+                    <h4>Transporte</h4>
+                    <p>Van VIP privada, Lancha, Helicóptero e transfers inclusos</p>
+                </div>
+                <div class="inclusion-item">
+                    <i class="fas fa-utensils"></i>
+                    <h4>Refeições</h4>
+                    <p>6 cafés da manhã, 4 almoços especiais e jantares selecionados</p>
+                </div>
+                <div class="inclusion-item">
+                    <i class="fas fa-ticket-alt"></i>
+                    <h4>Experiências</h4>
+                    <p>Todas as atividades, entradas em museus, terreiros e eventos</p>
+                </div>
+                <div class="inclusion-item">
+                    <i class="fas fa-user-tie"></i>
+                    <h4>Curadoria</h4>
+                    <p>Curador Nativa Salvador disponível 24h como concierge pessoal</p>
+                </div>
+                <div class="inclusion-item">
+                    <i class="fas fa-water"></i>
+                    <h4>Esportes</h4>
+                    <p>Aluguel de Jet Ski, aulas de Futevôlei e Canoagem</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manifesto Section -->
+    <section id="manifesto" class="manifesto">
+        <div class="container">
+            <div class="manifesto-content">
+                <h2 class="manifesto-title">Manifesto Nativa Salvador</h2>
+                <div class="manifesto-text">
+                    <p class="manifesto-lead">
+                        Não vendemos pacotes, vendemos acesso.
+                    </p>
+                    <p>
+                        Como soteropolitanos, levamos você para dentro da casa, do barco e da festa. 
+                        Sem armadilhas para turistas, apenas a Bahia autêntica, confortável e inesquecível.
+                    </p>
+                    <p>
+                        Da adrenalina do Jet Ski à profundidade dos terreiros ancestrais, a Nativa Salvador 
+                        abre as portas que o turismo comum não vê. Hospede-se em casarões barrocos no Santo 
+                        Antônio Além do Carmo, navegue em iates privados pela Baía de Todos os Santos e tenha 
+                        acesso VIP aos ensaios de verão mais disputados da cidade.
+                    </p>
+                    <p class="manifesto-signature">
+                        Esta é a nossa Salvador. E agora é sua também.
+                    </p>
+                </div>
+                <div class="manifesto-image">
+                    <img src="https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?w=600&h=800&fit=crop" alt="Nativa Salvador - O Spirit da Bahia">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="depoimentos" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Quem já vive, recomenda</h2>
+                <p class="section-subtitle">Histórias reais de viajantes que viveram a experiência</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop" alt="Maria Santos">
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "Uma experiência transformadora! A Nativa Salvador não só me mostrou os pontos turísticos, 
+                            mas me fez sentir parte da cultura baiana. O acesso VIP aos ensaios e a hospedagem no 
+                            casarão foram inesquecíveis."
+                        </p>
+                        <h4 class="testimonial-name">Maria Santos</h4>
+                        <p class="testimonial-location">São Paulo, SP</p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop" alt="João Pedro">
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "O voo de helicóptero sobre Salvador foi de tirar o fôlego! E a navegação pela Baía de 
+                            Todos os Santos, com DJ e drinks exclusivos, superou todas as expectativas. Vale cada centavo!"
+                        </p>
+                        <h4 class="testimonial-name">João Pedro</h4>
+                        <p class="testimonial-location">Rio de Janeiro, RJ</p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop" alt="Ana Carolina">
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            "A autenticidade é o diferencial da Nativa Salvador. Conhecer os terreiros, a Feira de São 
+                            Joaquim com o chef e as praias do subúrbio me deu uma visão completamente nova da Bahia."
+                        </p>
+                        <h4 class="testimonial-name">Ana Carolina</h4>
+                        <p class="testimonial-location">Belo Horizonte, MG</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Perguntas Frequentes</h2>
+                <p class="section-subtitle">Tire suas dúvidas sobre a experiência Nativa Salvador</p>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Qual o tamanho dos grupos?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Trabalhamos com grupos pequenos de no máximo 10 pessoas para garantir uma experiência intimista e personalizada. Isso permite acesso a locais exclusivos e maior interação com nossa equipe de curadores.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>O que não está incluído nos pacotes?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Passagens aéreas até Salvador, refeições não mencionadas no itinerário, bebidas alcoólicas (exceto as inclusas nas atividades especificadas), despesas pessoais e gorjetas opcionais. Seguro viagem é recomendado mas não obrigatório.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Qual o nível de condicionamento físico necessário?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>O roteiro tem nível físico 3/5 (moderado). Inclui caminhadas por áreas históricas com ladeiras, aulas de futevôlei e canoagem. Porém, todas as atividades podem ser adaptadas às suas necessidades. Informe-nos sobre qualquer limitação durante a reserva.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Posso personalizar o roteiro?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim! O pacote VIP Exclusivo oferece roteiro 100% customizável. Nos outros pacotes, podemos fazer ajustes mediante disponibilidade e possíveis custos adicionais. Entre em contato para discutirmos suas preferências.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Como funciona o acesso VIP aos ensaios de verão?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Durante a temporada de verão (junho a fevereiro), temos acesso a camarotes e áreas VIP nos ensaios mais disputados de Salvador. Alinhamos o roteiro com a agenda cultural da semana para garantir as melhores experiências. Este serviço está incluído no pacote VIP Exclusivo e pode ser adicionado aos outros pacotes.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Qual a política de cancelamento?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Cancelamentos com mais de 30 dias de antecedência: reembolso de 90%. Entre 15-30 dias: 50%. Menos de 15 dias: sem reembolso, mas você pode transferir para outra data (sujeito a disponibilidade) ou indicar outra pessoa para ocupar sua vaga.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>A hospedagem é individual ou compartilhada?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Os valores são por pessoa em acomodação dupla. Quartos individuais estão disponíveis com suplemento adicional. Casais recebem quarto duplo automaticamente. Viajantes solo podem optar por quarto individual ou compartilhar com outro viajante do mesmo sexo.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Preciso ter experiência com jet ski ou canoagem?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Não! Todas as atividades incluem instruções básicas com profissionais experientes. Para o jet ski, oferecemos uma breve capacitação antes da expedição. A canoagem ao nascer do sol é em águas calmas, perfeita para iniciantes.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Como funciona a curadoria 24h?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Um curador local estará disponível durante toda a sua estadia via WhatsApp para responder dúvidas, fazer recomendações e resolver qualquer imprevisto. Além disso, um guia acompanha todas as atividades em grupo. É como ter um amigo local expert à sua disposição!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Reserve Sua Experiência</h2>
+                <p class="section-subtitle">Entre em contato e garanta sua vaga</p>
+            </div>
+            
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Fale Conosco</h3>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>+55 (71) 99999-9999</p>
+                            <a href="https://wa.me/5571999999999" target="_blank" class="btn btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>E-mail</h4>
+                            <p>contato@nativasalvador.com.br</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Localização</h4>
+                            <p>Santo Antônio Além do Carmo<br>Salvador, Bahia - Brasil</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-media">
+                        <h4>Siga-nos nas redes sociais</h4>
+                        <div class="social-links">
+                            <a href="https://instagram.com/nativasalvador.tur" target="_blank" class="social-link">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://facebook.com/nativasalvador.tur" target="_blank" class="social-link">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="https://twitter.com/nativasalvador" target="_blank" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@nativasalvador" target="_blank" class="social-link">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                        <p class="social-handle">@NATIVASALVADOR.TUR</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nome Completo *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefone/WhatsApp *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="package">Pacote de Interesse</label>
+                            <select id="package" name="package">
+                                <option value="">Selecione um pacote</option>
+                                <option value="essencial">Essencial - R$ 8.900</option>
+                                <option value="premium">Premium - R$ 12.500</option>
+                                <option value="vip">VIP Exclusivo - R$ 18.900</option>
+                                <option value="custom">Personalizado</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Data Preferencial</label>
+                            <input type="date" id="date" name="date">
+                        </div>
+                        <div class="form-group">
+                            <label for="guests">Número de Pessoas</label>
+                            <input type="number" id="guests" name="guests" min="1" max="10" value="2">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Conte-nos mais sobre suas expectativas e dúvidas"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Solicitação</button>
+                    </form>
+                    <div id="formMessage" class="form-message"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Nativa Salvador</h4>
+                    <p>The Soul of Bahia</p>
+                    <p class="footer-tagline">Não vendemos pacotes, vendemos acesso.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#roteiros">Roteiros</a></li>
+                        <li><a href="#precos">Preços</a></li>
+                        <li><a href="#manifesto">Manifesto</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><i class="fab fa-whatsapp"></i> +55 (71) 99999-9999</li>
+                        <li><i class="fas fa-envelope"></i> contato@nativasalvador.com.br</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Salvador, Bahia</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Redes Sociais</h4>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/nativasalvador.tur" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com/nativasalvador.tur" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com/nativasalvador" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/@nativasalvador" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p class="footer-handle">@NATIVASALVADOR.TUR</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Nativa Salvador. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTop" class="scroll-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Custom JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
